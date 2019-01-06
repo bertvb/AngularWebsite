@@ -15,7 +15,8 @@ const MyRoutes: Routes = [
   { path: '', component: IndexComponent },
   { path: 'login', component: LoginComponent },
   { path: 'adressen', component: AdressenComponent },
-  { path: 'help', component: HelpComponent }
+  { path: 'help', component: HelpComponent },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

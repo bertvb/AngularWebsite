@@ -1,3 +1,19 @@
-<p>
-  help works!
-</p>
+
+<h2 id="titel">Contact</h2>
+  <div>
+    <p>
+      <label for="tekstveld1"> Onderwerp :</label> <input class="tekstveld" type="text" [(ngModel)]="subject" name="tekstveld1" id="tekstveld1"> <br>
+    </p>
+  </div>
+  <div>
+    <p>
+      Geef uw opmerkingen:<br><textarea [(ngModel)] = "textarea" class="tekstveld" id="tekstveld3" name="tekstveld3" cols="80" rows="10"></textarea>
+    </p>
+  </div>
+  <div>
+    <p>
+      <a href="mailto:r0620203@student.thomasmore.be?SUBJECT={{subject}}&BODY={{textarea}}">Verzenden</a>
+      <button style="float:right" (click)="onClickFunct()">Reset</button>
+    </p>
+  </div>
+<p> Voor persoonlijke vragen kan u mij <a href="mailto:bert.vanbockstael@proximus.be">hier</a> contacteren via e-mail </p>
