@@ -1,8 +1,8 @@
 <p>
   adressen works!
 </p>
-<div class="card mt-1" *ngFor="let user of users | async">
+<div class="card mt-1" *ngFor="let user of usersId | async">
   <div class="card-body">
-    UserID; {{user.uID}}
+    UserID: {{user.id}} en UseruID: {{user.uID}} en {{user.adressen}}
   </div>
 </div>
