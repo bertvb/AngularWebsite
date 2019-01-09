@@ -56,8 +56,14 @@ export class AdressenComponent implements OnInit {
   removeadres(u: User,i: number){
     //this.usersRef.doc(u.id).collection(u.adressen[i]).delete(); //error
   }
-  createadres(u:User){
-    
+  createAdres(u:User){
+    this.usersRef.doc(u.id).update({adressen: {
+      straat: this.createstraat,
+      nummer: this.createnummer,
+      postcode: this.createpostcode,
+      gemeente: this.creategemeente,
+      land: this.createland
+    }});
   }
 
   updateStraat(u: User,i: number){

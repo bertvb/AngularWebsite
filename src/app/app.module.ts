@@ -38,8 +38,8 @@ const MyRoutes: Routes = [
     FormsModule,//les7
     HttpModule,//les7
     RouterModule.forRoot(MyRoutes),
-    AngularFireModule.initializeApp(environment.firebaseconfig, 'AngularApp'),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(environment.firebaseconfig, 'AngularApp')
   ],
   providers: [AngularFirestore, AngularFireAuth],
   bootstrap: [AppComponent]
