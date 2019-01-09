@@ -17,6 +17,16 @@ export interface User {
   styleUrls: ['./adressen.component.css']
 })
 export class AdressenComponent implements OnInit {
+  newstraat: string;
+  newnummer: number;
+  newpostcode: number;
+  newgemeente: string;
+  newland: string;
+  createstraat: string;
+  createnummer: number;
+  createpostcode: number;
+  creategemeente: string;
+  createland: string;
   closed = false;
   usersRef: AngularFirestoreCollection<User>;
   usersId: Observable<User[]>;
@@ -41,4 +51,28 @@ export class AdressenComponent implements OnInit {
 
   ngOnInit() {
   }
+
+
+  removeadres(u: User,i: number){
+    //this.usersRef.doc(u.id).collection(u.adressen[i]).delete(); //error
+  }
+  createadres(u:User){
+    
+  }
+
+  updateStraat(u: User,i: number){
+    this.usersRef.doc(u.id).update(u.adressen[i].collection({straat: this.newstraat})); //error
+  }
+  updateNummer(){
+    
+  }
+  updatePostcode(){
+    
+  }
+  updateGemeente(){
+    
+  }
+  updateLand(){
+    
+  }  
 }
