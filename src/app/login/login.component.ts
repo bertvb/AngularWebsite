@@ -10,8 +10,20 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class LoginComponent implements OnInit {
   email = '';
   pass = '';
+  closed = true;
+  autheduserId: string;
+  autheduserEmail: string;
 
   constructor(private db:AngularFirestore,private afAuth: AngularFireAuth) {
+    this.afAuth.authState.subscribe(Auser => {
+      if(Auser){
+        this.autheduserId = Auser.uid;
+        this.autheduserEmail = Auser.email;
+        this.closed = false
+      }
+      else
+        this.closed = true
+    })
   }
 
   ngOnInit() {

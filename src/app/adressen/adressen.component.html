@@ -1,8 +1,26 @@
 <p>
   adressen works!
 </p>
-<div class="card mt-1" *ngFor="let user of usersId | async">
-  <div class="card-body">
-    UserID: {{user.id}} en UseruID: {{user.uID}} en {{user.adressen}}
+<div *ngFor="let user of usersId | async">
+  <div *ngIf="user.uID==autheduserId"> <!-- autheduserEmail is uID van ingelogde gebruiker en user.uID is uID in database -->
+    
+    <p>
+      <ngb-alert  type="success" *ngIf="!closed" (close)="closed=true">
+        <strong>Correct ingelogd!</strong><br> DatabaseUsersID: {{user.id}} <br>AuthUIDInDatabase: {{user.uID}} <br>
+      </ngb-alert>
+      Adressen:
+    </p>
+    
+    <div class="card mt-1" *ngFor="let adresssen of user.adressen; index as i">
+      <p class="card-body"> 
+          Straat: {{user.adressen[i].straat}} <br>
+          Nummer: {{user.adressen[i].nummer}} <br>
+          Postcode: {{user.adressen[i].postcode}} <br>
+          Gemeente: {{user.adressen[i].gemeente}} <br>
+          Land: {{user.adressen[i].land}} <br>
+      </p>
+    </div>
   </div>
 </div>
+{{autheduserId}}
+{{autheduserEmail}}

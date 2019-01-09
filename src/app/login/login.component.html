@@ -14,3 +14,7 @@
     <button class="btn btn-primary" (click)="signOut()">Sign Out</button>
   </div>
 </div>
+<br>
+<ngb-alert  type="success" *ngIf="!closed" (close)="closed=true">
+  <strong>Correct ingelogd!</strong><br> Email: {{autheduserEmail}} <br>AuthenicationUID: {{autheduserId}} <br>
+</ngb-alert>
