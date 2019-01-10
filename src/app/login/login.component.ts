@@ -34,7 +34,10 @@ export class LoginComponent implements OnInit {
     this.log.sendToLog('Sign In');
     this.afAuth.auth.signInWithEmailAndPassword(this.email, this.pass)
       .catch(reason => { this.log.sendToLog(reason); })
-      .then(value => { console.log(value); });
+      .then(value => { 
+        if(value != undefined){
+          this.log.sendToLog("Login Successful!");
+        }; });
   }
   signOut() {
     this.log.sendToLog('Sign Out');
