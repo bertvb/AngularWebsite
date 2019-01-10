@@ -13,6 +13,8 @@ Het Adresboekwebsite Project is een website waarop gebruikers zich kunnen inlogg
 [routes documentatie](doc/routes.md)  
 [observables documentatie](doc/observables.md)  
 [deployment documentatie](doc/deployment.md)  
+[domSanitizer documentatie](doc/domsanitizer.md)  
+[authentication documentatie](doc/authenticatie.md)  
 
 De website kan gevonden worden op https://adresboeksite.firebaseapp.com/  
 u kan inloggen als testgebruiker met:  
