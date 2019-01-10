@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { LoggingService} from '../logging.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFirestoreCollection } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
@@ -33,7 +34,7 @@ export class AdressenComponent implements OnInit {
   autheduserId: string;
   autheduserEmail: string;
 
-  constructor(private db:AngularFirestore, private auth: AngularFireAuth) {
+  constructor(private log: LoggingService,private db:AngularFirestore, private auth: AngularFireAuth) {
     this.usersRef = db.collection<User>('users');
     this.usersId = this.usersRef.snapshotChanges().pipe(
       map(actions => actions.map(a => {

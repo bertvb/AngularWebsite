@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoggingService} from './logging.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AdresBoekWebsite';
+  providers: [LoggingService] //code hfst6 opdracht 3
 }

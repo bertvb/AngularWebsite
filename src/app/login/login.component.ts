@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoggingService} from '../logging.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   autheduserId: string;
   autheduserEmail: string;
 
-  constructor(private db:AngularFirestore,private afAuth: AngularFireAuth) {
+  constructor(private log: LoggingService,private db:AngularFirestore,private afAuth: AngularFireAuth) {
     this.afAuth.authState.subscribe(Auser => {
       if(Auser){
         this.autheduserId = Auser.uid;
@@ -30,13 +31,13 @@ export class LoginComponent implements OnInit {
   }
 
   signIn() {
-    console.log('Sign In');
+    this.log.sendToLog('Sign In');
     this.afAuth.auth.signInWithEmailAndPassword(this.email, this.pass)
-      .catch(reason => { console.log(reason); })
+      .catch(reason => { this.log.sendToLog(reason); })
       .then(value => { console.log(value); });
   }
   signOut() {
-    console.log('Sign Out');
+    this.log.sendToLog('Sign Out');
     this.afAuth.auth.signOut();
   }
 }
