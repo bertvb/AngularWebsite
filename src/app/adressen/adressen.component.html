@@ -1,6 +1,3 @@
-<p>
-  adressen works!
-</p>
 <div *ngFor="let user of usersId | async">
   <div *ngIf="user.uID==autheduserId"> <!-- autheduserEmail is uID van ingelogde gebruiker en user.uID is uID in database -->
     
@@ -23,44 +20,48 @@
   </div>
 </div>
 <!-- start editable -->
-<h2>Edit Data:</h2>
-<div *ngFor="let user of usersId | async">
-  <div *ngIf="user.uID==autheduserId">
-    <div class="card mt-1" *ngFor="let adresssen of user.adressen; index as i">
-      <div class="card-body"> 
-          Straat: {{user.adressen[i].straat}}
-          <input type="text" class="form-control" placeholder="straat" [(ngModel)]="newstraat">
-          <button class="btn btn-primary" (click)="updateStraat(user,i)">Update</button><br>
-          Nummer: {{user.adressen[i].nummer}}
-          <input type="text" class="form-control" placeholder="nummer" [(ngModel)]="newnummer">
-          <button class="btn btn-primary" (click)="updateNummer(user,i)">Update</button><br>
-          Postcode: {{user.adressen[i].postcode}}
-          <input type="text" class="form-control" placeholder="postcode" [(ngModel)]="newpostcode">
-          <button class="btn btn-primary" (click)="updatePostcode(user,i)">Update</button><br>
-          Gemeente: {{user.adressen[i].gemeente}}
-          <input type="text" class="form-control" placeholder="gemeente" [(ngModel)]="newgemeente">
-          <button class="btn btn-primary" (click)="updateGemeente(user,i)">Update</button><br>
-          Land: {{user.adressen[i].land}}
-          <input type="text" class="form-control" placeholder="land" [(ngModel)]="newland">
-          <button class="btn btn-primary" (click)="updateLand(user,i)">Update</button><br>
-
-          <button class="btn btn-danger float-right" (click)="removeadres(user,i)">&times;</button>
+<button class="btn btn-primary" (click)="toggleEdit()">Show Editor</button>
+<div [ngStyle]="{visibility: visibility}">
+    <h2>Edit Data:</h2>
+    <div *ngFor="let user of usersId | async">
+      <div *ngIf="user.uID==autheduserId">
+        <div class="card mt-1" *ngFor="let adresssen of user.adressen; index as i">
+          <div class="card-body"> 
+              Straat: {{user.adressen[i].straat}}
+              <input type="text" class="form-control" placeholder="straat" [(ngModel)]="newstraat">
+              <button class="btn btn-primary" (click)="updateStraat(user,i)">Update</button><br>
+              Nummer: {{user.adressen[i].nummer}}
+              <input type="text" class="form-control" placeholder="nummer" [(ngModel)]="newnummer">
+              <button class="btn btn-primary" (click)="updateNummer(user,i)">Update</button><br>
+              Postcode: {{user.adressen[i].postcode}}
+              <input type="text" class="form-control" placeholder="postcode" [(ngModel)]="newpostcode">
+              <button class="btn btn-primary" (click)="updatePostcode(user,i)">Update</button><br>
+              Gemeente: {{user.adressen[i].gemeente}}
+              <input type="text" class="form-control" placeholder="gemeente" [(ngModel)]="newgemeente">
+              <button class="btn btn-primary" (click)="updateGemeente(user,i)">Update</button><br>
+              Land: {{user.adressen[i].land}}
+              <input type="text" class="form-control" placeholder="land" [(ngModel)]="newland">
+              <button class="btn btn-primary" (click)="updateLand(user,i)">Update</button><br>
+    
+              <button class="btn btn-danger float-right" (click)="removeadres(user,i)">&times;</button>
+          </div>
+        </div>
+    
+        <h5>Create new Adress</h5>
+        <div class="card mt-1">
+          <div class="card-body">
+            Straat:<input type="text" class="form-control" placeholder="straat" [(ngModel)]="createstraat">
+            Nummer:<input type="text" class="form-control" placeholder="nummer" [(ngModel)]="createnummer">
+            Postcode:<input type="text" class="form-control" placeholder="postcode" [(ngModel)]="createpostcode">
+            Gemeente:<input type="text" class="form-control" placeholder="gemeente" [(ngModel)]="creategemeente">
+            Land:<input type="text" class="form-control" placeholder="land" [(ngModel)]="createland">
+            <button class="btn btn-primary" (click)="createAdres(user)">Create</button>
+          </div>
+        </div>
+    
+    
       </div>
     </div>
-
-    <h5>Create new Adress</h5>
-    <div class="card mt-1">
-      <div class="card-body">
-        Straat:<input type="text" class="form-control" placeholder="straat" [(ngModel)]="createstraat">
-        Nummer:<input type="text" class="form-control" placeholder="nummer" [(ngModel)]="createnummer">
-        Postcode:<input type="text" class="form-control" placeholder="postcode" [(ngModel)]="createpostcode">
-        Gemeente:<input type="text" class="form-control" placeholder="gemeente" [(ngModel)]="creategemeente">
-        Land:<input type="text" class="form-control" placeholder="land" [(ngModel)]="createland">
-        <button class="btn btn-primary" (click)="createAdres(user)">Create</button>
-      </div>
-    </div>
-
-
-  </div>
 </div>
+
 

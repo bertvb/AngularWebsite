@@ -10,6 +10,7 @@ export class HelpComponent implements OnInit {
   logsweergave:Array<string>=[];
   subject = "";
   textarea = "";
+  logclosed = true;
   constructor(private log: LoggingService) { }
 
   ngOnInit() {
@@ -20,5 +21,14 @@ export class HelpComponent implements OnInit {
   onClickFunct(){
     this.subject = "";
     this.textarea = "";
+  }
+
+  togglelog(){
+    if(this.logclosed == true){
+      this.logclosed = false;
+    }
+    else{
+      this.logclosed = true;
+    }
   }
 }

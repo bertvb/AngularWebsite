@@ -29,6 +29,7 @@ export class AdressenComponent implements OnInit {
   creategemeente: string;
   createland: string;
   closed = false;
+  visibility = "hidden";
   usersRef: AngularFirestoreCollection<User>;
   usersId: Observable<User[]>;
   autheduserId: string;
@@ -81,5 +82,16 @@ export class AdressenComponent implements OnInit {
   }
   updateLand(){
     
-  }  
+  }
+  
+  
+
+  toggleEdit(){
+    if(this.visibility == "visible"){
+      this.visibility = "hidden";
+    }
+    else{
+      this.visibility = "visible";
+    }
+  }
 }

@@ -18,7 +18,10 @@
   </div>
 <p> Voor persoonlijke vragen kan u mij <a href="mailto:bert.vanbockstael@proximus.be">hier</a> contacteren via e-mail </p>
 <!-- logging starts here -->
-<h5>Log:</h5>
-<ul class="list-group">
-    <li *ngFor="let logg of logsweergave; index as i" class="list-group-item active">{{i}}: {{logg}}</li>
-</ul>
+<button class="btn btn-primary" (click)="togglelog()">Show logging</button>
+<div *ngIf="!logclosed">
+    <h5>Log:</h5>
+    <ul class="list-group">
+        <li *ngFor="let logg of logsweergave; index as i" class="list-group-item active">{{i}}: {{logg}}</li>
+    </ul>
+</div>
