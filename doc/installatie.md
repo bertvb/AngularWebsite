@@ -1,15 +1,15 @@
-# installatie & project setup documentatie
+# installatie & project setup documentatie  
 
-#Installatie:
+#Installatie:  
 
-`npm node.js package manager`
-downloaden van https://nodejs.org
+`npm node.js package manager`  
+downloaden van https://nodejs.org  
 
-"globaal" installeren van angular:
-`npm install -g @angular/cli`
+"globaal" installeren van angular:  
+`npm install -g @angular/cli`  
 
-#project setup:
-Project gemaakt en alle componenten:
+#project setup:  
+Project gemaakt en alle componenten:  
 ```
 cd D:\School\EICT4\Semester1\webservicesApplications
 ng new AngularWebsite
@@ -18,7 +18,7 @@ ng g c adressen
 ng g c help
 ng g c index
 ng g c login
-```
-met `ng serve` kan men het project als test runnen op localhost:4200
+```  
+met `ng serve` kan men het project als test runnen op localhost:4200  
 
-op https://adresboeksite.firebaseapp.com/ kan de hosted website gevonden worden
+op https://adresboeksite.firebaseapp.com/ kan de hosted website gevonden worden  
