@@ -74,17 +74,17 @@ export class AdressenComponent implements OnInit {
   updateStraat(u: User,i: number){
     this.usersRef.doc(u.id).update(u.adressen[i].collection({straat: this.newstraat})); //error
   }
-  updateNummer(){
-    
+  updateNummer(u: User,i: number){
+    this.usersRef.doc(u.id).update(u.adressen[i].collection({nummer: this.newnummer})); //error
   }
-  updatePostcode(){
-    
+  updatePostcode(u: User,i: number){
+    this.usersRef.doc(u.id).update(u.adressen[i].collection({postcode: this.newpostcode})); //error
   }
-  updateGemeente(){
-    
+  updateGemeente(u: User,i: number){
+    this.usersRef.doc(u.id).update(u.adressen[i].collection({gemeente: this.newgemeente})); //error
   }
-  updateLand(){
-    
+  updateLand(u: User,i: number){
+    this.usersRef.doc(u.id).update(u.adressen[i].collection({land: this.newland})); //error
   }
   
   
