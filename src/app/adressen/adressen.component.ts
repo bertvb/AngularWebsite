@@ -5,6 +5,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFirestoreCollection } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 
 export interface User {
   id?: string;
@@ -34,8 +35,9 @@ export class AdressenComponent implements OnInit {
   usersId: Observable<User[]>;
   autheduserId: string;
   autheduserEmail: string;
-
-  constructor(private log: LoggingService,private db:AngularFirestore, private auth: AngularFireAuth) {
+  url: SafeResourceUrl;
+  realurl="https://maps.google.com/maps/embed?width=100%&amp;height=350&amp;hl=en&amp;q=veeweidestraat%2013%20huldenberg%203040%20belgi%C3%AB+(Bel)&amp;ie=UTF8&amp;t=&amp;z=13&amp;iwloc=B&amp"
+  constructor(private log: LoggingService,private db:AngularFirestore, private auth: AngularFireAuth,sanitizer: DomSanitizer) {
     this.usersRef = db.collection<User>('users');
     this.usersId = this.usersRef.snapshotChanges().pipe(
       map(actions => actions.map(a => {
@@ -49,6 +51,7 @@ export class AdressenComponent implements OnInit {
         this.autheduserId = Auser.uid;
         this.autheduserEmail = Auser.email
       }})
+    this.url = sanitizer.bypassSecurityTrustResourceUrl(this.realurl);
   }
 
   ngOnInit() {
@@ -94,4 +97,5 @@ export class AdressenComponent implements OnInit {
       this.visibility = "visible";
     }
   }
+
 }
